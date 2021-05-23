@@ -1,9 +1,8 @@
-var express = require("express");
-var app = express();
-var db = require("./db");
-var user = require("./controllers/usercontroller");
-var game = require("./controllers/gamecontroller");
-var bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const db = require("./db");
+const user = require("./controllers/usercontroller");
+const game = require("./controllers/gamecontroller");
 
 const PORT = process.env.PORT || 4000;
 
