@@ -11,8 +11,8 @@ router.post("/signup", (req, res) => {
     username: req.body.user.username,
     passwordhash: bcrypt.hashSync(req.body.user.password, 10),
     email: req.body.user.email,
-  }).then(
-    function signupSuccess(user) {
+  })
+    .then((user) => {
       let token = jwt.sign({ id: user.id }, "lets_play_sum_games_man", {
         expiresIn: 60 * 60 * 24,
       });
@@ -20,12 +20,10 @@ router.post("/signup", (req, res) => {
         user: user,
         token: token,
       });
-    },
-
-    function signupFail(err) {
+    })
+    .catch((err) => {
       res.status(500).send(err.message);
-    }
-  );
+    });
 });
 
 router.post("/signin", (req, res) => {
