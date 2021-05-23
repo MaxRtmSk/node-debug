@@ -12,6 +12,6 @@ db.sync();
 app.use(express.json());
 app.use("/api/auth", usercontroller);
 app.use("/api/game", validateSession, gamecontroller);
-app.listen(PORT, function () {
+app.listen(PORT, () => {
   console.log(`App is listening on ${PORT}`);
 });
